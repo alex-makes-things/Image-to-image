@@ -1,4 +1,3 @@
-#Thanks ChatGPT!
 from PIL import Image, ImageTk
 import threading
 import struct
@@ -27,13 +26,11 @@ open_previews = []
 
 def generateImageArray(path):
     with open(path, "rb") as f:
-        # 🔸 Read header: width (2B), height (2B), bpp (1B)
         header = f.read(5)
         width, height, bpp = struct.unpack("<HHB", header)
         
 
         if bpp == 16:
-            # 🟢 RGB565: 2 bytes per pixel
             pixel_data = f.read(width * height * 2)
             pixels = np.frombuffer(pixel_data, dtype=np.uint16).reshape((height, width))
 
@@ -54,7 +51,6 @@ def generateImageArray(path):
                     img_array[y, x] = rgb565_to_rgb888(pixels[y, x])
 
         elif bpp == 1:
-            # ⚫ MONO 1bpp packed: 1 bit per pixel, packed in bytes
             bytes_per_row = (width + 7) // 8
             total_bytes = bytes_per_row * height
             pixel_data = f.read(total_bytes)
@@ -76,7 +72,6 @@ def generateImageArray(path):
         else:
             raise ValueError(f"Unsupported color depth: {bpp} bpp")
 
-        # 🔸 Create and show image
         return Image.fromarray(img_array, "RGB"), bpp
 def pack_mono_row(row):
     packed = bytearray()
