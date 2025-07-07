@@ -49,7 +49,26 @@ Each pixel is placed sequentially in the array, without endline blocks, so it is
 
 There are 2 ways to run the converter the first one is cloning the repository, and running the script directly, and the second one is downloading the latest release executable.
 
+If you want to run the actual script, you're gonna need to have Python installed on your system along with these dependencies:
+ - Pillow
+ - Screeninfo
+ - Tkinter (if you didn't install it with python)
+
+To install these dependencies just run the following commands in your command prompt:
+
+```
+pip install Pillow
+```
+```
+pip install screeninfo
+```
+And if you haven't installed Tkinter bundled with Python:
+```
+pip install tk
+```
+
 A reason that might make you want to install the executable is that I've baked in functionality for Windows' "Open with" file explorer feature, which lets you visualize .image files.
+
     
 ## Supported Platforms
 
