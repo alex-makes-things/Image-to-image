@@ -1,8 +1,6 @@
 from PIL import Image, ImageTk
-import threading
 import struct
 import numpy as np
-from time import sleep
 from tkinter import Tk, Frame, Button, Label,StringVar,ttk,Toplevel,IntVar,Checkbutton
 from tkinter import filedialog
 import tkinter.font as tkFont
