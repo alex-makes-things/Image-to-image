@@ -1,12 +1,11 @@
 from PIL import Image, ImageTk
 import struct
 import numpy as np
-from tkinter import Tk, Frame, Button, Label,StringVar,ttk,Toplevel,IntVar,Checkbutton
+from tkinter import Tk, Frame, Button, Label,StringVar,ttk,Toplevel,IntVar,Checkbutton,messagebox
 from tkinter import filedialog
 import tkinter.font as tkFont
 import sys
 import screeninfo
-import os
 
 import ctypes
 try:
@@ -207,7 +206,7 @@ def convert():
         if(showPreview.get()):
                 view_image((selected_path.get().split(".")[0]+".image"))
     except:
-        print("Invalid path / Null selection")
+        messagebox.showerror(title="Invalid selection", message="Cannot convert null path")
 def remove_focus(event):
     event.widget.master.focus_set()  # Move focus to parent, or any other widget
 
